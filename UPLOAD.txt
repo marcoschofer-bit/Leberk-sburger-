@@ -1,0 +1,4 @@
+SCHOFI ISLAND – PARAMETER VERSION
+
+Für GitHub Pages bitte den Inhalt dieses Ordners in den Hauptordner des Repositorys hochladen.
+Wichtig: index.html muss im Hauptordner liegen.
