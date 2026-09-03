@@ -3,48 +3,166 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Schofi Island – Leberkäsburger</title>
+<title>SCHOFI ISLAND · LEBERKÄSBURGER</title>
 <style>
-*{box-sizing:border-box}html,body{margin:0;background:#061116;color:#fff;font-family:Arial,Helvetica,sans-serif}body{min-height:100vh}.wrap{max-width:1000px;margin:auto;background:#071116;box-shadow:0 0 30px #000}.hero{width:100%;display:block;border-radius:0 0 18px 18px}.content{padding:34px 24px 30px}.section-title{color:#ffc400;font-size:38px;font-weight:900;margin:0 0 20px;letter-spacing:-.5px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:34px}.choice{background:#0a1419;border:3px solid #263b45;border-radius:24px;padding:22px 14px 18px;text-align:center;cursor:pointer;min-height:150px;transition:.15s}.choice.selected{border-color:#ffd000;box-shadow:0 0 0 1px #ffd000 inset}.choice img{width:130px;height:80px;object-fit:contain;display:block;margin:0 auto 12px}.choice span{font-size:24px;font-weight:800}.ingredients-head{display:flex;align-items:center;justify-content:space-between;margin:0 0 18px}.count{font-size:30px;color:#ddd}.ingredients{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.ingredient{background:#091419;border:3px solid #263b45;border-radius:20px;padding:16px 10px 14px;text-align:center;cursor:pointer;min-height:170px;position:relative}.ingredient.selected{border-color:#ffd000;background:#101b15}.ingredient img{width:120px;height:88px;object-fit:contain;display:block;margin:0 auto 6px}.ingredient .name{font-size:20px;font-weight:800;line-height:1.1}.ingredient .sub{font-size:16px;color:#eee;margin-top:6px;line-height:1.1}.sharebox{margin-top:28px;border:2px solid #21404e;border-radius:20px;padding:18px;background:#071116}.sharebuttons{display:flex;gap:12px}.btn{flex:1;border:0;border-radius:14px;padding:16px;font-size:18px;font-weight:900;cursor:pointer}.share{background:#ffd000;color:#111}.copy{background:#149be8;color:white}.hint{font-size:16px;color:#ddd;margin:0 0 14px}.linkrow{display:flex;gap:8px;margin-top:14px}.linkrow input{flex:1;background:#081117;color:#fff;border:2px solid #35434a;border-radius:12px;padding:14px;font-size:15px}.linkrow button{background:#111b20;color:#fff;border:2px solid #35434a;border-radius:12px;padding:0 18px;font-size:22px}.footer{text-align:center;color:#ddd;padding:20px 12px 28px;font-size:16px}@media(max-width:700px){.content{padding:28px 16px}.section-title{font-size:34px}.cards{gap:10px}.choice{padding:16px 8px;min-height:130px;border-radius:20px}.choice img{width:100px;height:65px}.choice span{font-size:19px}.ingredients{grid-template-columns:repeat(2,1fr);gap:12px}.ingredient{min-height:160px}.ingredient img{width:100px;height:78px}.ingredient .name{font-size:18px}.ingredient .sub{font-size:14px}.sharebuttons{flex-direction:column}.linkrow input{font-size:13px}.count{font-size:24px}}
+*{box-sizing:border-box}
+html,body{margin:0;background:#061116;color:#fff;font-family:Arial,Helvetica,sans-serif}
+body{min-height:100vh}
+.wrap{max-width:1000px;margin:auto;background:#071116;box-shadow:0 0 30px #000}
+.hero{width:100%;display:block;border-radius:0 0 18px 18px}
+.content{padding:30px 24px 28px}
+.section-title{color:#ffd000;font-size:36px;font-weight:900;margin:0 0 18px;letter-spacing:-.5px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:30px}
+.choice{background:#0a1419;border:3px solid #263b45;border-radius:24px;padding:14px 10px 12px;text-align:center;cursor:pointer;min-height:145px;color:#fff}
+.choice.selected{border-color:#ffd000;box-shadow:0 0 0 1px #ffd000 inset}
+.choice img{width:100%;height:88px;object-fit:contain;object-position:center;display:block;margin:0 auto 8px}
+.choice span{font-size:22px;font-weight:800}
+.ingredients-head{display:flex;align-items:center;justify-content:space-between;margin:0 0 16px}
+.count{font-size:28px;color:#ddd}
+.ingredients{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.ingredient{background:#091419;border:3px solid #263b45;border-radius:20px;padding:12px 10px 14px;text-align:center;cursor:pointer;min-height:155px;position:relative;color:#fff}
+.ingredient.selected{border-color:#ffd000;background:#101b15}
+.ingredient img{width:100%;height:92px;object-fit:contain;object-position:center;display:block;margin:0 auto 5px}
+.ingredient .name{font-size:20px;font-weight:800;line-height:1.1}
+.ingredient .sub{font-size:14px;color:#eee;margin-top:5px;line-height:1.1}
+.status{margin-top:22px;border:2px solid #21404e;border-radius:20px;padding:18px 20px;background:#071116;font-size:20px;font-weight:700}
+.status .good{display:block;color:#ffd000;font-size:25px;margin-top:7px}
+.sharebox{margin-top:16px;border:2px solid #21404e;border-radius:20px;padding:18px;background:#071116}
+.hint{font-size:16px;color:#ddd;margin:0 0 14px;line-height:1.4}
+.sharebuttons{display:flex;gap:12px}
+.btn{flex:1;border:0;border-radius:14px;padding:16px;font-size:18px;font-weight:900;cursor:pointer}
+.share{background:#ffd000;color:#111}
+.copy{background:#149be8;color:#fff}
+.linkrow{display:flex;gap:8px;margin-top:14px}
+.linkrow input{flex:1;background:#081117;color:#fff;border:2px solid #35434a;border-radius:12px;padding:14px;font-size:14px;min-width:0}
+.linkrow button{background:#111b20;color:#fff;border:2px solid #35434a;border-radius:12px;padding:0 18px;font-size:22px}
+.footer{text-align:center;color:#ddd;padding:20px 12px 28px;font-size:16px}
+@media(max-width:700px){
+ .content{padding:28px 16px}
+ .section-title{font-size:32px}
+ .cards{gap:10px}
+ .choice{padding:12px 6px;min-height:132px;border-radius:20px}
+ .choice img{width:100%;height:76px}
+ .choice span{font-size:19px}
+ .ingredients{gap:12px}
+ .ingredient{min-height:160px}
+ .ingredient img{width:100%;height:82px}
+ .ingredient .name{font-size:18px}
+ .ingredient .sub{font-size:13px}
+ .sharebuttons{flex-direction:column}
+ .count{font-size:24px}
+}
 </style>
 </head>
 <body>
 <div class="wrap">
-<img class="hero" src="hero.jpg" alt="Schofi Island Leberkäsburger">
+<img class="hero" src="schofi-island-burger-vorschau.jpg" alt="Schofi Island Leberkäsburger">
 <div class="content">
+
 <h2 class="section-title">LEBERKÄS-SORTE</h2>
 <div class="cards" id="types">
-  <button class="choice selected" data-type="normal"><img src="normal.png"><span>Normal</span></button>
-  <button class="choice" data-type="kaese"><img src="kaese.png"><span>Käse</span></button>
-  <button class="choice" data-type="pizza"><img src="pizza.png"><span>Pizza</span></button>
+  <button class="choice selected" data-type="normal"><img src="normal.png" alt=""><span>Normal</span></button>
+  <button class="choice" data-type="kaese"><img src="kaese.png" alt=""><span>Käse</span></button>
+  <button class="choice" data-type="pizza"><img src="pizza.png" alt=""><span>Pizza</span></button>
 </div>
-<div class="ingredients-head"><h2 class="section-title" style="margin:0">DEINE ZUTATEN</h2><div class="count" id="count">0 gewählt</div></div>
+
+<div class="ingredients-head">
+  <h2 class="section-title" style="margin:0">🌿 DEINE ZUTATEN</h2>
+  <div class="count" id="count">0 gewählt</div>
+</div>
+
 <div class="ingredients" id="ingredients"></div>
+
+<div class="status">
+  <span id="summary">Normal · Burger Bun</span>
+  <span id="selectedText">Noch keine Zutaten ausgewählt.</span>
+  <span class="good">Preis ist Gute Laune! 🌴</span>
+</div>
+
 <div class="sharebox">
-<p class="hint"><b>BURGER ZUSAMMENSTELLEN → LINK TEILEN → EINFACH AN SCHOFI SCHICKEN</b><br>So kann Schofi genau sehen, welchen Burger du möchtest.</p>
-<div class="sharebuttons"><button class="btn share" id="share">↗ BURGER TEILEN</button><button class="btn copy" id="copy">▣ LINK KOPIEREN</button></div>
-<div class="linkrow"><input id="link" readonly><button id="copy2">▣</button></div>
+<p class="hint"><b>BURGER ZUSAMMENSTELLEN → LINK TEILEN → EINFACH AN SCHOFI SCHICKEN</b><br>
+So kann Schofi genau sehen, welchen Burger du möchtest.</p>
+<div class="sharebuttons">
+<button class="btn share" id="share">↗ BURGER TEILEN</button>
+<button class="btn copy" id="copy">▣ LINK KOPIEREN</button>
+</div>
+<div class="linkrow">
+<input id="link" readonly>
+<button id="copy2">▣</button>
+</div>
 </div>
 </div>
 <div class="footer">🌴 SCHOFI ISLAND · BURGER · SONNE · GUTE LAUNE · 🍺 KEESMANN HELL</div>
 </div>
+
 <script>
 const data=[
  ['sauce','Soße','(Mayo, süßer Senf, Senf)','sauce.png'],
- ['pickles','Burgergurken','', 'pickles.png'],
- ['redonion','Rotweinzwiebeln','', 'redonion.png'],
- ['fried','Röstzwiebeln','', 'fried.png'],
- ['cheese','Allgäuer Bergkäse','', 'cheese.png'],
- ['chili','Chili','', 'chili.png'],
- ['lettuce','Salat','', 'lettuce.png'],
- ['slaw','Coleslaw','', 'slaw.png']
+ ['pickles','Burgergurken','','pickles.png'],
+ ['redonion','Rotweinzwiebeln','','redonion.png'],
+ ['fried','Röstzwiebeln','','fried.png'],
+ ['cheese','Allgäuer Bergkäse','','cheese.png'],
+ ['chili','Chili','','chili.png'],
+ ['lettuce','Salatblatt','','lettuce.png'],
+ ['slaw','Mayo-Krautsalat','','slaw.png']
 ];
-let params=new URLSearchParams(location.search);let type=params.get('type')||'normal';let selected=new Set((params.get('zutaten')||'').split(',').filter(Boolean));
-const types=[...document.querySelectorAll('.choice')];types.forEach(b=>{b.classList.toggle('selected',b.dataset.type===type);b.onclick=()=>{type=b.dataset.type;types.forEach(x=>x.classList.toggle('selected',x===b));updateLink()}});
-const grid=document.getElementById('ingredients');data.forEach(([id,name,sub,img])=>{let el=document.createElement('button');el.className='ingredient'+(selected.has(id)?' selected':'');el.innerHTML=`<img src="${img}" alt=""><div class="name">${name}</div>${sub?`<div class="sub">${sub}</div>`:''}`;el.onclick=()=>{selected.has(id)?selected.delete(id):selected.add(id);el.classList.toggle('selected');renderCount();updateLink()};grid.appendChild(el)});
-function renderCount(){document.getElementById('count').textContent=`${selected.size} gewählt`}function updateLink(){let p=new URLSearchParams();p.set('type',type);if(selected.size)p.set('zutaten',[...selected].join(','));document.getElementById('link').value=location.origin+location.pathname+'?'+p.toString();history.replaceState(null,'',document.getElementById('link').value)}
-async function copyLink(){await navigator.clipboard.writeText(document.getElementById('link').value);document.getElementById('copy').textContent='✓ LINK KOPIERT';setTimeout(()=>document.getElementById('copy').textContent='▣ LINK KOPIEREN',1500)}
-document.getElementById('copy').onclick=copyLink;document.getElementById('copy2').onclick=copyLink;document.getElementById('share').onclick=async()=>{let u=document.getElementById('link').value;if(navigator.share){try{await navigator.share({title:'Schofi Island Leberkäsburger',text:'Hallo Schofi! Hier ist mein Leberkäsburger:',url:u})}catch(e){}}else copyLink()};renderCount();updateLink();
+
+const params=new URLSearchParams(location.search);
+let type=params.get('type')||'normal';
+let selected=new Set((params.get('zutaten')||'').split(',').filter(Boolean));
+
+const typeNames={normal:'Normal',kaese:'Käse',pizza:'Pizza'};
+const types=[...document.querySelectorAll('.choice')];
+
+function render(){
+ types.forEach(b=>b.classList.toggle('selected',b.dataset.type===type));
+ document.getElementById('count').textContent=`${selected.size} gewählt`;
+ document.getElementById('summary').textContent=`${typeNames[type]||'Normal'} · Burger Bun`;
+ document.getElementById('selectedText').textContent=
+   selected.size ? [...selected].map(id=>data.find(x=>x[0]===id)?.[1]).filter(Boolean).join(' · ') : 'Noch keine Zutaten ausgewählt.';
+ updateLink();
+}
+
+const grid=document.getElementById('ingredients');
+data.forEach(([id,name,sub,img])=>{
+ const el=document.createElement('button');
+ el.className='ingredient'+(selected.has(id)?' selected':'');
+ el.innerHTML=`<img src="${img}" alt=""><div class="name">${name}</div>${sub?`<div class="sub">${sub}</div>`:''}`;
+ el.onclick=()=>{selected.has(id)?selected.delete(id):selected.add(id);render()};
+ grid.appendChild(el);
+});
+
+types.forEach(b=>{
+ b.onclick=()=>{type=b.dataset.type;render()};
+});
+
+function updateLink(){
+ const p=new URLSearchParams();
+ p.set('type',type);
+ if(selected.size)p.set('zutaten',[...selected].join(','));
+ const u=location.origin+location.pathname+'?'+p.toString();
+ document.getElementById('link').value=u;
+ history.replaceState(null,'',u);
+}
+
+async function copyLink(){
+ try{await navigator.clipboard.writeText(document.getElementById('link').value);}
+ catch(e){}
+ document.getElementById('copy').textContent='✓ LINK KOPIERT';
+ setTimeout(()=>document.getElementById('copy').textContent='▣ LINK KOPIEREN',1600);
+}
+document.getElementById('copy').onclick=copyLink;
+document.getElementById('copy2').onclick=copyLink;
+
+document.getElementById('share').onclick=async()=>{
+ const u=document.getElementById('link').value;
+ if(navigator.share){
+  try{await navigator.share({title:'Schofi Island Leberkäsburger',text:'Hallo Schofi! Hier ist mein Leberkäsburger:',url:u});}
+  catch(e){}
+ }else copyLink();
+};
+
+render();
 </script>
 </body>
 </html>
