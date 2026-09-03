@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Schofi Island – Leberkäsburger</title>
+<style>
+:root{--b:#078fe3;--y:#ffd21a;--bg:#101419;--p:#11171cdd}
+*{box-sizing:border-box}body{margin:0;color:#fff;font-family:Arial,sans-serif;background:#111}
+body:before{content:"";position:fixed;inset:0;z-index:-2;background:linear-gradient(90deg,#000c,#0005),url(schofi-island.jpg) center/cover}
+.wrap{max-width:1250px;margin:auto;padding:16px}.head{display:flex;justify-content:space-between;gap:20px;align-items:center}
+.logo{font-weight:900;font-size:clamp(32px,5vw,60px);letter-spacing:2px;text-shadow:3px 3px #000}.logo span{color:var(--y)}
+.sub{font-size:18px}.motto{padding:12px 16px;border:1px solid #777;border-radius:12px;background:#0009;text-align:center;font-weight:800}.motto b{display:block;color:var(--y);font-size:20px}
+.grid{display:grid;grid-template-columns:510px 1fr;gap:16px;margin-top:16px}.panel{background:var(--p);border:1px solid #56616a;border-radius:15px;padding:15px;box-shadow:0 10px 25px #0008}
+h2{margin:0 0 12px;font-size:23px}.num{color:var(--y)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.ingredients{grid-template-columns:repeat(4,1fr)}
+.card{position:relative;background:#171d22;border:1px solid #6b747b;border-radius:11px;padding:8px;text-align:center;cursor:pointer;min-height:105px}.card.active{border:2px solid var(--b);box-shadow:0 0 0 2px #078fe333}.card input{position:absolute;opacity:0}.check{position:absolute;right:7px;top:7px;width:21px;height:21px;border:2px solid #aab0b5;border-radius:50%}.active .check{background:var(--b);border-color:var(--b)}.active .check:after{content:"✓";font-weight:900}
+.icon{font-size:38px;height:55px;display:flex;justify-content:center;align-items:center}.ingredients .icon{font-size:30px;height:43px}.label{font-weight:900;font-size:14px}.note{font-size:10px;color:#c4cbd0;margin-top:3px}
+.preview{display:flex;flex-direction:column}.stage{min-height:560px;position:relative;overflow:hidden;border-radius:13px;background:linear-gradient(#09203355,#071016bb),url(schofi-island.jpg) center/cover}
+.sidebeer{position:absolute;right:18px;bottom:25px;width:135px;max-height:270px;object-fit:contain;filter:drop-shadow(0 8px 8px #000b)}
+.burger{position:absolute;left:50%;bottom:34px;transform:translateX(-55%);width:min(70%,500px);display:flex;flex-direction:column;filter:drop-shadow(0 15px 12px #000b)}
+.layer{width:100%;display:none;text-align:center}.show{display:block}
+.bunTop{height:105px;border-radius:55% 55% 18% 18%;background:linear-gradient(145deg,#efb45f,#ad5b20);box-shadow:inset 0 8px 9px #ffd99466}.bunTop:after{content:"• •  •   • •   •";display:block;text-align:center;color:#ffe4a4;font-size:22px;padding-top:25px;letter-spacing:9px}
+.patty{height:92px;border-radius:15px;background:linear-gradient(#b96a47,#74331f)}.patty.kaese{background:linear-gradient(#bd7048,#7b351e)}.patty.pizza{background:linear-gradient(#b8583c,#72251c)}
+.sauce{height:20px;border-radius:8px;background:linear-gradient(#f6d898,#c47c2f)}.cheese{height:25px;background:#f3cf49;border-radius:3px}.pickles,.onions,.fried,.chili{height:28px;font-size:25px;line-height:25px}.pickles{color:#88bd3d}.onions{color:#df6a87}.fried{color:#d8912c}.chili{color:#ef3a26}.slaw{height:30px;background:#e9dfbd;border-radius:50%}.lettuce{height:25px;background:#63aa37;border-radius:50%}.bunBottom{height:50px;border-radius:13px 13px 35px 35px;background:linear-gradient(#d88b42,#a6521c)}
+.actions{display:flex;gap:9px;margin-top:10px}.btn{flex:1;padding:14px;border-radius:10px;border:1px solid #59646d;background:#11171c;color:#fff;font-weight:900;font-size:15px;cursor:pointer}.primary{background:var(--b);border-color:var(--b)}.yellow{background:var(--y);color:#111;border-color:var(--y)}
+.link{margin-top:10px;padding:11px;border:1px solid #315c72;border-radius:10px;background:#071116}.link small{color:#31adf0;font-weight:900}.row{display:flex;gap:7px;margin-top:6px}.row input{min-width:0;flex:1;padding:10px;background:#080c0f;color:#fff;border:1px solid #59646d;border-radius:8px}.row button{border:1px solid #59646d;background:#172128;color:#fff;border-radius:8px;padding:0 12px}.sum{font-size:14px;line-height:1.5;margin-top:8px;color:#dce2e5}
+.beerlabel{position:absolute;right:16px;top:16px;background:#0009;padding:8px 11px;border-radius:8px;font-weight:800}
+footer{text-align:center;padding:16px;color:#c3c9cd}
+@media(max-width:900px){.grid{grid-template-columns:1fr}.stage{min-height:500px}.preview{position:relative}.burger{width:76%}}
+@media(max-width:560px){.wrap{padding:9px}.motto{display:none}.ingredients{grid-template-columns:repeat(2,1fr)}.stage{min-height:460px}.sidebeer{width:90px;right:5px;bottom:15px}.burger{width:78%;transform:translateX(-60%)}.bunTop{height:78px}.patty{height:72px}.bunBottom{height:40px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="head">
+<div><div class="logo">SCHOFI <span>ISLAND</span></div><div class="sub">LEBERKÄSBURGER · Stell dir deinen Burger zusammen!</div></div>
+<div class="motto">PREIS?<b>GUTE LAUNE!</b>☺</div>
+</header>
+<div class="grid">
+<section class="panel">
+<h2><span class="num">1.</span> LEBERKÄS AUSWAHL</h2>
+<div class="cards" id="patties">
+<label class="card active"><input type="radio" name="patty" value="normal" checked><div class="icon">🥩</div><div class="label">NORMAL</div><span class="check"></span></label>
+<label class="card"><input type="radio" name="patty" value="kaese"><div class="icon">🧀</div><div class="label">KÄSE</div><span class="check"></span></label>
+<label class="card"><input type="radio" name="patty" value="pizza"><div class="icon">🍕</div><div class="label">PIZZA</div><span class="check"></span></label>
+</div>
+<h2 style="margin-top:18px"><span class="num">2.</span> ZUTATEN</h2>
+<div class="cards ingredients" id="ings">
+<label class="card"><input type="checkbox" value="sauce"><div class="icon">🥣</div><div class="label">SOßE</div><div class="note">Süßer Senf · Mayonnaise · Senf</div><span class="check"></span></label>
+<label class="card"><input type="checkbox" value="pickles"><div class="icon">🥒</div><div class="label">BURGERGURKEN</div><span class="check"></span></label>
+<label class="card"><input type="checkbox" value="onions"><div class="icon">🧅</div><div class="label">ROTWEINZWIEBELN</div><span class="check"></span></label>
+<label class="card"><input type="checkbox" value="fried"><div class="icon">🧅</div><div class="label">RÖSTZWIEBELN</div><span class="check"></span></label>
+<label class="card"><input type="checkbox" value="cheese"><div class="icon">🧀</div><div class="label">ALLGÄUER BERGKÄSE</div><span class="check"></span></label>
+<label class="card"><input type="checkbox" value="chili"><div class="icon">🌶️</div><div class="label">CHILI</div><span class="check"></span></label>
+<label class="card"><input type="checkbox" value="lettuce"><div class="icon">🥬</div><div class="label">SALATBLATT</div><span class="check"></span></label>
+<label class="card"><input type="checkbox" value="slaw"><div class="icon">🥗</div><div class="label">MAYO KRAUTSALAT</div><span class="check"></span></label>
+</div>
+<div class="actions"><button class="btn" id="reset">↻ ZURÜCKSETZEN</button></div>
+</section>
+<section class="panel preview">
+<h2>DEIN <span class="num">LEBERKÄSBURGER</span></h2>
+<div class="stage">
+<div class="beerlabel">🍺 Keesmann Hell</div>
+<img class="sidebeer" src="keesmann-hell.png" alt="Keesmann Hell">
+<div class="burger">
+<div class="layer bunTop show"></div>
+<div class="layer sauce" data-x="sauce"></div>
+<div class="layer fried" data-x="fried">••••••••••</div>
+<div class="layer onions" data-x="onions">◯ ◯ ◯ ◯ ◯</div>
+<div class="layer pickles" data-x="pickles">● ● ● ● ●</div>
+<div class="layer cheese" data-x="cheese"></div>
+<div class="layer chili" data-x="chili">● ● ● ●</div>
+<div class="layer patty" id="patty"></div>
+<div class="layer slaw" data-x="slaw"></div>
+<div class="layer lettuce" data-x="lettuce"></div>
+<div class="layer bunBottom show"></div>
+</div>
+</div>
+<div class="sum" id="sum"></div>
+<div class="actions"><button class="btn yellow" id="share">↗ BURGER TEILEN</button><button class="btn primary" id="copy">LINK KOPIEREN</button></div>
+<div class="link"><small>DEIN BURGER-LINK ZUM TEILEN</small><div class="row"><input id="url" readonly><button id="copy2">⧉</button></div></div>
+</section>
+</div>
+<footer>🌴 SCHOFI ISLAND · BURGER · SONNE · GUTE LAUNE · 🍺 Keesmann Hell</footer>
+</div>
+<script>
+const base=location.origin+location.pathname;
+const names={sauce:"Soße (Süßer Senf, Mayonnaise, Senf)",pickles:"Burgergurken",onions:"Rotweinzwiebeln",fried:"Röstzwiebeln",cheese:"Allgäuer Bergkäse",chili:"Chili",lettuce:"Salatblatt",slaw:"Mayo Krautsalat"};
+const pn={normal:"Normal",kaese:"Käse",pizza:"Pizza"};
+function update(){
+ document.querySelectorAll(".card").forEach(c=>{let i=c.querySelector("input");if(i)c.classList.toggle("active",i.checked)});
+ let p=document.querySelector("[name=patty]:checked").value, pl=document.getElementById("patty");
+ pl.className="layer patty "+(p==="kaese"?"kaese":p==="pizza"?"pizza":"");
+ document.querySelectorAll("[data-x]").forEach(e=>e.classList.toggle("show",!!document.querySelector("input[value="+e.dataset.x+"]").checked));
+ let a=[...document.querySelectorAll("#ings input:checked")].map(i=>names[i.value]);
+ document.getElementById("sum").innerHTML="<b>"+pn[p]+" · Burger Bun</b>"+(a.length?"<br>"+a.join(" · "):"<br>Noch keine Zutaten ausgewählt.")+"<br><b>Preis ist Gute Laune!</b>";
+ let q=new URLSearchParams({patty:p});document.querySelectorAll("#ings input:checked").forEach(i=>q.set(i.value,"1"));
+ let u=base+"?"+q.toString();document.getElementById("url").value=u;history.replaceState(null,"",u);
+}
+function load(){
+ let q=new URLSearchParams(location.search),p=q.get("patty");
+ if(p&&document.querySelector("[name=patty][value="+p+"]"))document.querySelector("[name=patty][value="+p+"]").checked=true;
+ document.querySelectorAll("#ings input").forEach(i=>i.checked=q.get(i.value)==="1");update();
+}
+document.querySelectorAll("input").forEach(i=>i.addEventListener("change",update));
+document.getElementById("reset").onclick=()=>{document.querySelector("[name=patty][value=normal]").checked=true;document.querySelectorAll("#ings input").forEach(i=>i.checked=false);update()};
+async function copy(){try{await navigator.clipboard.writeText(document.getElementById("url").value);alert("Burger-Link kopiert!")}catch(e){document.getElementById("url").select();document.execCommand("copy")}}
+document.getElementById("copy").onclick=copy;document.getElementById("copy2").onclick=copy;
+document.getElementById("share").onclick=async()=>{let u=document.getElementById("url").value;if(navigator.share){try{await navigator.share({title:"Mein Schofi Island Leberkäsburger",text:"Mein Burger bei Schofi Island 🍔",url:u})}catch(e){}}else copy()};
+load();
+</script>
+</body>
+</html>
