@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Schofi Island • Leberkäsburger</title>
+<meta name="description" content="Dein Leberkäsburger – Zutaten auswählen und Auswahl teilen.">
+<style>
+*{box-sizing:border-box}
+:root{--ink:#1d1712;--cream:#fffaf0;--paper:#f4ead8;--green:#16813e;--green2:#0e6330;--gold:#d49b36;--line:#e2d5c2}
+body{margin:0;color:var(--ink);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:
+radial-gradient(circle at 10% 10%,#fff8 0 8%,transparent 28%),linear-gradient(135deg,#efe4d2,#f9f4eb)}
+.container{width:min(1080px,100%);margin:auto;padding:18px}
+.header{text-align:center;padding:8px 0 20px}.eyebrow{font-size:12px;font-weight:900;letter-spacing:.18em;text-transform:uppercase}.header h1{font-size:clamp(30px,6vw,52px);margin:5px 0 3px;line-height:1}.header p{margin:0;color:#75695b}
+.app{display:grid;grid-template-columns:1.08fr .92fr;gap:18px;align-items:start}
+.panel{background:rgba(255,250,240,.94);border:1px solid #e5d8c5;border-radius:26px;padding:16px;box-shadow:0 16px 45px #2a190b12}
+.menu{width:100%;display:block;border-radius:18px}
+.sectionhead{display:flex;justify-content:space-between;gap:10px;align-items:end;margin-bottom:12px}.sectionhead h2{margin:0;font-size:23px}.count{font-size:12px;font-weight:850;background:#e8f4e9;color:var(--green2);padding:7px 10px;border-radius:999px}
+.options{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.opt{position:relative;display:flex;align-items:center;min-height:60px;padding:12px 12px;border:1.5px solid var(--line);border-radius:15px;background:#fff;cursor:pointer;transition:.15s}
+.opt:hover{transform:translateY(-1px);box-shadow:0 5px 14px #0000000b}.opt.selected{border-color:var(--green);background:#eff8ef}
+.opt input{position:absolute;opacity:0}.dot{width:24px;height:24px;border:2px solid #cfc3b2;border-radius:50%;margin-right:10px;display:grid;place-items:center;flex:none}.opt.selected .dot{border-color:var(--green);background:var(--green)}.dot:after{content:"✓";color:#fff;font-size:15px;font-weight:900;opacity:0}.opt.selected .dot:after{opacity:1}
+.opt b{font-size:14px;line-height:1.2}.opt small{display:block;color:#817568;font-size:11px;margin-top:2px}
+.salad{margin-top:15px;padding-top:15px;border-top:1px solid var(--line)}.salad-title{font-weight:850;margin-bottom:8px}.saladrow{display:grid;grid-template-columns:1fr 1fr;gap:9px}.saladrow label{padding:13px;border:1.5px solid var(--line);border-radius:14px;background:#fff;text-align:center;font-weight:800;cursor:pointer}.saladrow label:has(input:checked){border-color:var(--green);background:#eff8ef}.saladrow input{display:none}
+.summary{margin-top:15px;background:var(--paper);border-radius:16px;padding:14px}.summary-top{display:flex;justify-content:space-between;font-weight:850}.price{font-size:22px}.chosen{margin-top:6px;color:#665b4e;line-height:1.55;font-size:14px}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:12px}button{border:0;border-radius:14px;padding:14px 12px;font-weight:900;font-size:14px;cursor:pointer}.primary{background:var(--green);color:#fff}.primary:hover{background:var(--green2)}.dark{background:var(--ink);color:#fff}.soft{background:#e9e0d2;color:var(--ink)}
+.linkbox{margin-top:10px;display:flex;gap:7px}.linkbox input{min-width:0;flex:1;border:1px solid var(--line);border-radius:12px;padding:12px;background:#fff;font-size:12px}.copy{width:auto;padding:12px 14px}
+.msg{text-align:center;min-height:21px;font-size:13px;font-weight:800;margin-top:8px}.note{text-align:center;font-size:11px;color:#84786a;margin-top:12px;line-height:1.45}
+@media(max-width:800px){.app{grid-template-columns:1fr}.options{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.container{padding:10px}.panel{padding:12px;border-radius:20px}.options,.actions{grid-template-columns:1fr}.header{padding-bottom:13px}}
+</style>
+</head>
+<body>
+<div class="container">
+<header class="header"><div class="eyebrow">Schofi Island</div><h1>Dein Leberkäsburger</h1><p>Gutes Essen. Kaltes Bier. Beste Zeit.</p></header>
+
+<main class="app">
+<section class="panel">
+<img class="menu" src="menu.png" alt="Schofi Island Leberkäsburger">
+</section>
+
+<section class="panel">
+<div class="sectionhead"><h2>Deine Zutaten</h2><span class="count" id="count">0 gewählt</span></div>
+<div class="options">
+<label class="opt"><input type="checkbox" data-k="rw"><span class="dot"></span><span><b>Rotweinzwiebeln</b><small>herzhaft & kräftig</small></span></label>
+<label class="opt"><input type="checkbox" data-k="rz"><span class="dot"></span><span><b>Röstzwiebeln</b><small>knusprig & würzig</small></span></label>
+<label class="opt"><input type="checkbox" data-k="sauce"><span class="dot"></span><span><b>Leberkäsburger Sauce</b><small>Süßer Senf, Mayo, Senf</small></span></label>
+<label class="opt"><input type="checkbox" data-k="berg"><span class="dot"></span><span><b>Allgäuer Bergkäse</b><small>kräftig & cremig</small></span></label>
+<label class="opt"><input type="checkbox" data-k="gurke"><span class="dot"></span><span><b>Gurke</b><small>frisch & knackig</small></span></label>
+<label class="opt"><input type="checkbox" data-k="chili"><span class="dot"></span><span><b>Chili</b><small>für etwas mehr Feuer</small></span></label>
+<label class="opt"><input type="checkbox" data-k="kraut"><span class="dot"></span><span><b>Mayo-Krautsalat</b><small>cremig & knackig</small></span></label>
+</div>
+
+<div class="salad"><div class="salad-title">Salat wählen</div><div class="saladrow">
+<label><input type="radio" name="salat" value="eisberg">🥬 Eisbergsalat</label>
+<label><input type="radio" name="salat" value="bunt">🥗 Bunter Salat</label>
+</div></div>
+
+<div class="summary"><div class="summary-top"><span>Deine Auswahl</span><span class="price">7,90 €</span></div><div id="chosen" class="chosen">Noch keine Zutaten ausgewählt.</div></div>
+
+<div class="actions">
+<button class="primary" onclick="createLink()">🔗 Auswahl erstellen</button>
+<button class="primary" onclick="whatsapp()">🟢 WhatsApp teilen</button>
+<button class="dark" onclick="copyLink()">📋 Link kopieren</button>
+<button class="soft" onclick="resetAll()">↺ Zurücksetzen</button>
+</div>
+<div class="linkbox"><input id="link" readonly placeholder="Dein persönlicher Link erscheint hier"><button class="dark copy" onclick="copyLink()">Kopieren</button></div>
+<div id="msg" class="msg"></div>
+<div class="note">Deine Auswahl steckt direkt im Link. Wer ihn öffnet, sieht automatisch dieselbe Konfiguration.</div>
+</section>
+</main>
+</div>
+
+<script>
+const names={rw:"Rotweinzwiebeln",rz:"Röstzwiebeln",sauce:"Leberkäsburger Sauce",berg:"Allgäuer Bergkäse",gurke:"Gurke",chili:"Chili",kraut:"Mayo-Krautsalat"};
+const boxes=[...document.querySelectorAll('[data-k]')], radios=[...document.querySelectorAll('input[name="salat"]')];
+const link=document.getElementById('link');
+function params(){const p=new URLSearchParams();boxes.forEach(x=>{if(x.checked)p.set(x.dataset.k,'1')});const s=radios.find(x=>x.checked);if(s)p.set('salat',s.value);return p}
+function render(){boxes.forEach(x=>x.closest('.opt').classList.toggle('selected',x.checked));let a=boxes.filter(x=>x.checked).map(x=>names[x.dataset.k]);const s=radios.find(x=>x.checked);if(s)a.push(s.value==='eisberg'?'Eisbergsalat':'Bunter Salat');document.getElementById('chosen').textContent=a.length?a.join(' · '):'Noch keine Zutaten ausgewählt.';document.getElementById('count').textContent=a.length+' gewählt'}
+function createLink(){const p=params(),u=location.origin+location.pathname+(p.toString()?'?'+p:'');history.replaceState({},'',u);link.value=u;render();show('Dein Parameter-Link ist fertig ✓')}
+function copyLink(){createLink();navigator.clipboard?.writeText(link.value).then(()=>show('Link kopiert ✓')).catch(()=>{link.focus();link.select();show('Link markieren und kopieren.')})}
+function whatsapp(){createLink();location.href='https://wa.me/?text='+encodeURIComponent('🍔 Meine Schofi-Island Leberkäsburger-Auswahl:\n'+link.value)}
+function resetAll(){boxes.forEach(x=>x.checked=false);radios.forEach(x=>x.checked=false);history.replaceState({},'',location.pathname);link.value='';render();show('Auswahl zurückgesetzt')}
+function show(t){const e=document.getElementById('msg');e.textContent=t;setTimeout(()=>e.textContent='',2200)}
+function load(){const p=new URLSearchParams(location.search);boxes.forEach(x=>x.checked=p.get(x.dataset.k)==='1');radios.forEach(x=>x.checked=p.get('salat')===x.value);link.value=location.search?location.href:'';render()}
+boxes.forEach(x=>x.addEventListener('change',render));radios.forEach(x=>x.addEventListener('change',render));load();
+</script>
+</body>
+</html>
